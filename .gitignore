@@ -1,0 +1,27 @@
+# Données
+data/*.csv
+data/*.zip
+
+# Modèles
+models/*.joblib
+models/*.pkl
+models/*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Environnements
+.env
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp 

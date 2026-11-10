@@ -1,0 +1,30 @@
+[project]
+name = "ai-testguard"
+version = "0.1.0"
+description = "QA pipeline pour modèle de détection de fraude bancaire"
+requires-python = ">=3.9"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+# Règles activées
+select = ["E", "F", "W", "I", "N"]
+# Exceptions :
+#  - E501 : lignes > 100 caractères (géré par line-length)
+#  - N803/N806 : noms X, X_train, etc. (convention ML, PAS des vraies variables)
+#  - N815 : attributs mixteCase (ex: scaler.mean_)
+ignore = ["E501", "N803", "N806"]
+
+[tool.ruff.lint.per-file-ignores]
+# Les tests peuvent avoir des noms plus libres
+"tests/*" = ["N803", "N806"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --cov=app --cov-report=term-missing --cov-report=xml"
+
+[tool.coverage.run]
+source = ["app"]
+omit = ["tests/*"]
